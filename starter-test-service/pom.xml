@@ -36,9 +36,14 @@
 			<groupId>com.fallframework.platform</groupId>
 			<artifactId>fall-platform-starter-security</artifactId>
 		</dependency>-->
-		<dependency>
+		<!--<dependency>
 			<groupId>com.fallframework.platform</groupId>
 			<artifactId>fall-platform-starter-shiro</artifactId>
+		</dependency>-->
+
+		<dependency>
+			<groupId>com.fallframework.platform</groupId>
+			<artifactId>fall-platform-starter-drools</artifactId>
 		</dependency>
 		
 		<!--<dependency>
