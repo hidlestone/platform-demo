@@ -45,7 +45,15 @@
 			<groupId>com.fallframework.platform</groupId>
 			<artifactId>fall-platform-starter-drools</artifactId>
 		</dependency>
-		
+		<!--<dependency>
+			<groupId>com.fallframework.platform</groupId>
+			<artifactId>fall-platform-starter-flyway</artifactId>
+		</dependency>-->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+
 		<!--<dependency>
 			<groupId>com.fallframework.platform</groupId>
 			<artifactId>fall-platform-starter-task-quartz</artifactId>
@@ -77,5 +85,100 @@
 			<version>3.2.1</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>it.ozimov</groupId>
+				<artifactId>yaml-properties-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>src/main/resources/application.yml</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>first-execution</id>
+						<phase>compile</phase> <!--whatever phase you need-->
+						<goals>
+							<goal>migrate</goal>
+						</goals>
+						<configuration>
+							<!-- 配置目标数据库连接 -->
+							<!--suppress UnresolvedMavenProperty -->
+							<driver>${spring.first-datasource.driver-class-name}</driver>
+							<!--suppress UnresolvedMavenProperty -->
+							<url>${spring.first-datasource.url}</url>
+							<!--suppress UnresolvedMavenProperty -->
+							<user>${spring.first-datasource.username}</user>
+							<!--suppress UnresolvedMavenProperty -->
+							<password>${spring.first-datasource.password}</password>
+							<!-- 配置数据库脚本位置 -->
+							<locations>
+								<!--suppress UnresolvedMavenProperty -->
+								<location>${spring.first-datasource.location}</location>
+							</locations>
+							<!--suppress UnresolvedMavenProperty -->
+							<table>${spring.first-datasource.table}</table>
+							<!--suppress UnresolvedMavenProperty -->
+							<skip>${spring.first-datasource.skip}</skip>
+							<!-- 设置sql脚本文件的编码 -->
+							<encoding>UTF-8</encoding>
+							<ignoreMissingMigrations>true</ignoreMissingMigrations>
+							<outOfOrder>true</outOfOrder>
+							<cleanDisabled>true</cleanDisabled>
+							<baselineOnMigrate>true</baselineOnMigrate>
+							<placeholderReplacement>false</placeholderReplacement>
+						</configuration>
+					</execution>
+					<execution>
+						<id>second-execution</id>
+						<phase>compile</phase> <!--whatever phase you need-->
+						<goals>
+							<goal>migrate</goal>
+						</goals>
+						<configuration>
+							<!-- 配置目标数据库连接 -->
+							<!--suppress UnresolvedMavenProperty -->
+							<driver>${spring.second-datasource.driver-class-name}</driver>
+							<!--suppress UnresolvedMavenProperty -->
+							<url>${spring.second-datasource.url}</url>
+							<!--suppress UnresolvedMavenProperty -->
+							<user>${spring.second-datasource.username}</user>
+							<!--suppress UnresolvedMavenProperty -->
+							<password>${spring.second-datasource.password}</password>
+							<!-- 配置数据库脚本位置 -->
+							<locations>
+								<!--suppress UnresolvedMavenProperty -->
+								<location>${spring.second-datasource.location}</location>
+							</locations>
+							<!--suppress UnresolvedMavenProperty -->
+							<table>${spring.second-datasource.table}</table>
+							<!--suppress UnresolvedMavenProperty -->
+							<skip>${spring.second-datasource.skip}</skip>
+							<!-- 设置sql脚本文件的编码 -->
+							<encoding>UTF-8</encoding>
+							<ignoreMissingMigrations>true</ignoreMissingMigrations>
+							<outOfOrder>true</outOfOrder>
+							<baselineOnMigrate>true</baselineOnMigrate>
+							<placeholderReplacement>false</placeholderReplacement>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
