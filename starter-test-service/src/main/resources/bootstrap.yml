@@ -143,13 +143,18 @@ xxl:
       # 执行器日志保存天数 [选填] ：值大于3时生效，启用执行器Log文件定期清理功能，否则不生效；
       log-retention-days: -1
 
+elasticsearch:
+  host: 127.0.0.1
+  port: 9200
+  
+
+
+
+
 fall:
   file:
     upload-file-path: E://fallplatform-file/
     
-
-
-
 platform:
   project: ceep
   version: 1.0

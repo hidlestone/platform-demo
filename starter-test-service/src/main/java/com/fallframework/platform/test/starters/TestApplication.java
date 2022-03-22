@@ -16,7 +16,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 		"com.fallframework.platform.starter.mq.mapper",
 //		"com.fallframework.platform.starter.task.quartz.mapper",
 //		"com.fallframework.platform.starter.task.xxljob.mapper",
-		"com.fallframework.platform.starter.rbac.mapper"})
+		"com.fallframework.platform.starter.rbac.mapper",
+		"com.fallframework.platform.test.starters.elasticsearch.mapper"})
 @ComponentScan(basePackages = {"com.fallframework"})
 @EnableTransactionManagement
 @SpringBootApplication

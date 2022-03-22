@@ -49,10 +49,10 @@
 			<groupId>com.fallframework.platform</groupId>
 			<artifactId>fall-platform-starter-flyway</artifactId>
 		</dependency>-->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-		</dependency>
+		</dependency>-->
 
 		<!--<dependency>
 			<groupId>com.fallframework.platform</groupId>
@@ -65,6 +65,10 @@
 		<dependency>
 			<groupId>com.fallframework.platform</groupId>
 			<artifactId>fall-platform-starter-cache-ehcache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fallframework.platform</groupId>
+			<artifactId>fall-platform-starter-elasticsearch</artifactId>
 		</dependency>
 
 		<!-- webService-->
@@ -83,6 +87,12 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
 			<version>3.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.18.Final</version>
 		</dependency>
 	</dependencies>
 
